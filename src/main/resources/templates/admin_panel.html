@@ -210,17 +210,18 @@
 
                 <div class="form-group">
                     <label for="passwordEdit" class="font-weight-bold">Password</label>
-                    <input type="password" class="form-control" id="passwordEdit" name="password" required>
+                    <input type="text" class="form-control" id="passwordEdit" name="password" required>
                 </div>
                 <label class="font-weight-bold">Role</label>
                 <div>
-                    <label for="adminCheckboxEdit">ADMIN</label>
-                    <input type="checkbox" id="adminCheckboxEdit" name="role" value="1">
+                    <select size="2" name="roles" multiple
+                            class="form-control"
+                            id="roles" required>
 
-                    <label for="userCheckboxEdit">USER</label>
-                    <input type="checkbox" id="userCheckboxEdit" name="role" value="2">
+                        <option value="2">USER</option>
+                        <option value="1">ADMIN</option>
+                    </select>
                 </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" id="updateButton">Close</button>

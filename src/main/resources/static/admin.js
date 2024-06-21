@@ -19,7 +19,6 @@ const renderPosts = (users) => {
             rolesStr = u.roles.roleName.replace('Role_', '');
         }
 
-
         temp += `<tr>
                                     <td>${u.id}</td>
                                     <td id=${'name' + u.id}>${u.name}</td>
@@ -165,11 +164,12 @@ function editModal(id) {
 
     fetch(url + id, {
         headers: {
-            'Accept': 'application/json', 'Content-Type': 'application/json;charset=UTF-8'
+            'OK': 'application/json', 'Content-Type': 'application/json;charset=UTF-8'
         }
     }).then(res => {
         res.json().then(us => {
-
+            console.log(res)
+            console.log(us)
             document.getElementById('idEdit').value = us.id;
             document.getElementById('nameEdit').value = us.name;
             document.getElementById('lastnameEdit').value = us.lastname;
@@ -186,7 +186,7 @@ async function editUser() {
     let lastnameValue = document.getElementById("lastnameEdit").value;
     let usernameValue = document.getElementById("usernameEdit").value;
     let passwordValue = document.getElementById("passwordEdit").value;
-    let roles = Array.from(document.querySelectorAll('input[name="role"]:checked')).map(cb => cb.value);
+    let roles = Array.from(document.querySelectorAll('option:checked').values()).map(cb => cb.value);
 
     let user = {
         id: idValue,
@@ -245,6 +245,7 @@ function userAuthInfo() {
             <td>${u.name}</td>
             <td>${u.lastname}</td>
             <td>${u.username}</td>
+            <td>${u.password}</td>
             <td>${rolesStr}</td>
             </tr>`;
             console.log(data);

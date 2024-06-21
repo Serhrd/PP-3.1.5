@@ -51,6 +51,7 @@ public class AdminRestControllers {
 
     @PutMapping(value = "/edit/{id}")
     public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody User updateUser) {
+
         updateUser.setId(id);
         us.updateUser(updateUser);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -59,6 +60,7 @@ public class AdminRestControllers {
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+
         us.deleteUser(id);
         return ResponseEntity.ok().build();
     }
