@@ -33,6 +33,7 @@ public class CustomUserSerializer extends StdSerializer<User> {
             for (Role role : user.getRoles()) {
                 jsonGenerator.writeStartObject();
                 jsonGenerator.writeStringField("roleName", role.getRoleName());
+                jsonGenerator.writeStringField("roleId", role.getRoleId().toString());
                 jsonGenerator.writeEndObject();
             }
             jsonGenerator.writeEndArray();

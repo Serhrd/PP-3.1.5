@@ -176,6 +176,14 @@ function editModal(id) {
             document.getElementById('usernameEdit').value = us.username;
             document.getElementById('passwordEdit').value = us.password;
 
+            console.log(us.roles.length )
+            if (us.roles.length > 1) {
+                document.getElementById('roles')[0].selected= true;
+                document.getElementById('roles')[1].selected= true;
+            } else {
+                document.getElementById('roles').value = (us.roles[0]["roleId"])
+            }
+
         })
     });
 }
@@ -216,8 +224,7 @@ async function editUser() {
             document.getElementById("lastname").value = "";
             document.getElementById("username").value = "";
             document.getElementById("password").value = "";
-            Array.from(document.querySelectorAll('.roleCheckbox')).forEach(cb => cb.checked = false);
-
+            Array.from(document.querySelectorAll('option:checked')).forEach(cb => cb.checked = false);
             getAllUsers();
             document.getElementById("updateButton").click();
         }
